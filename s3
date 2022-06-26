@@ -1,4 +1,9 @@
-resource "aws_s3_bucket" "b" {
+Access Key ID:
+AKIAUWE6GPTZNPLEEAAG
+Secret Access Key:
+253xY7vsTeVAfFyHdO6DoS1/O5psGnWkMbLT0PtZ
+
+resource "aws_s3_bucket" "" {
   bucket = "my-tf-test-bucket"
 
   tags = {
@@ -10,4 +15,10 @@ resource "aws_s3_bucket" "b" {
 resource "aws_s3_bucket_acl" "example" {
   bucket = aws_s3_bucket.b.id
   acl    = "private"
+}
+ versioning {
+    enabled = true
+  }
+  provider "aws" {
+  region = "us-east-1"
 }
